@@ -1,11 +1,16 @@
 import Dictionary from "../dictionary/Dictionary";
 
-type GraphKeyTypes = string | number;
+export type GraphType = string | number;
 
+export enum Color {
+  WHITE = 0,
+  GREY = 1,
+  BLACK = 2,
+}
 export class Graph {
   isDirected: boolean;
-  vertices: GraphKeyTypes[];
-  adjList: Dictionary<GraphKeyTypes, GraphKeyTypes[]>;
+  vertices: GraphType[];
+  adjList: Dictionary<GraphType, GraphType[]>;
 
   constructor(isDirected: boolean) {
     this.isDirected = isDirected;
@@ -13,14 +18,14 @@ export class Graph {
     this.adjList = new Dictionary();
   }
 
-  addVertex(v: GraphKeyTypes): void {
+  addVertex(v: GraphType): void {
     if (!this.vertices.includes(v)) {
       this.vertices.push(v);
       this.adjList.set(v, []);
     }
   }
 
-  addEdge(v1: GraphKeyTypes, v2: GraphKeyTypes) {
+  addEdge(v1: GraphType, v2: GraphType) {
     if (!this.adjList.get(v1)) {
       this.addVertex(v1);
     }
@@ -33,11 +38,11 @@ export class Graph {
     }
   }
 
-  getVertices(): GraphKeyTypes[] {
+  getVertices(): GraphType[] {
     return this.vertices.slice();
   }
 
-  getAdjList(): Dictionary<GraphKeyTypes, GraphKeyTypes[]> {
+  getAdjList(): Dictionary<GraphType, GraphType[]> {
     return this.adjList;
   }
 
