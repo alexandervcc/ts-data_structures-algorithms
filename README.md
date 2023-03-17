@@ -1,3 +1,4 @@
-# Data Structures & Algorithms
+# TS Learning 
 
-Data Structures and Algorithms with Typescript.
+- Data Structures and Algorithms with Typescript.
+- Typing
